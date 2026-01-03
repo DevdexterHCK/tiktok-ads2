@@ -1,0 +1,775 @@
+/* ==================================
+   Quiz - TikTok Style (Fundo Preto)
+   ================================== */
+
+#quiz-screen {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.quiz-logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.quiz-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Ícone TikTok */
+.quiz-tiktok-icon {
+  color: #fff;
+  font-size: 6.5em;
+  text-shadow: 8px 8px 0 #FE2C55, -8px -8px 0 #00f2ea;
+  display: block;
+}
+
+/* Logo na página do quiz - maior */
+.quiz-page-logo {
+  font-size: 8em !important;
+  margin: 0 auto;
+}
+
+.quiz-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.quiz-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quiz-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #f1f1f2;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FE2C55 0%, #FF6B9D 100%);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(254, 44, 85, 0.5);
+}
+
+.quiz-question-card {
+  background: #1a1a1a;
+  border-radius: 16px;
+  padding: 40px 30px;
+  box-shadow: 0 4px 20px rgba(254, 44, 85, 0.2);
+  border: 1px solid #333;
+  opacity: 0;
+  animation: slideIn 0.4s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question-number {
+  color: #FE2C55;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.question-text {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.quiz-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz-answer {
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 12px;
+  padding: 18px 20px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-answer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(254, 44, 85, 0.05), transparent);
+  transition: left 0.5s;
+}
+
+.quiz-answer:hover {
+  background: #1a1a1a;
+  border-color: #FE2C55;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(254, 44, 85, 0.3);
+}
+
+.quiz-answer:hover::before {
+  left: 100%;
+}
+
+.quiz-answer.selected {
+  background: #FE2C55;
+  border-color: #FE2C55;
+  color: #fff;
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(254, 44, 85, 0.3);
+}
+
+.quiz-answer.correct {
+  background: #d1fae5;
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.quiz-answer.wrong {
+  background: #ffe4e6;
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.quiz-answer:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.quiz-navigation {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.quiz-btn {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quiz-btn-back {
+  background: #f1f1f1;
+  color: #161823;
+}
+
+.quiz-btn-back:hover {
+  background: #e0e0e0;
+}
+
+.quiz-btn-next {
+  background: #FE2C55;
+  color: white;
+}
+
+.quiz-btn-next:hover {
+  background: #e02547;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 44, 85, 0.3);
+}
+
+.quiz-btn-next:active {
+  transform: translateY(0);
+}
+
+.quiz-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Congratulations Screen */
+#congrats-screen {
+  background: linear-gradient(135deg, #FE2C55 0%, #FF6B9D 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.congrats-container {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  animation: celebrationBounce 0.6s ease;
+}
+
+@keyframes celebrationBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  50% {
+    transform: scale(1.05) translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.congrats-icon {
+  font-size: 100px;
+  margin-bottom: 20px;
+  animation: rotateIcon 0.6s ease;
+}
+
+@keyframes rotateIcon {
+  0% {
+    transform: rotate(0deg) scale(0);
+  }
+  70% {
+    transform: rotate(360deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.congrats-title {
+  font-size: 42px;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 15px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.congrats-subtitle {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.congrats-prize {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.prize-label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.prize-amount {
+  font-size: 48px;
+  color: #FE2C55;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.prize-description {
+  font-size: 14px;
+  color: #888;
+}
+
+.congrats-btn {
+  background: white;
+  color: #FE2C55;
+  border: none;
+  padding: 20px 50px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.congrats-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.congrats-btn:active {
+  transform: translateY(-2px);
+}
+
+/* Confetti Animation */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #ffd700;
+  position: absolute;
+  animation: confettiFall 3s linear infinite;
+}
+
+@keyframes confettiFall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .quiz-tiktok-icon {
+    font-size: 5em;
+    text-shadow: 6px 6px 0 #FE2C55, -6px -6px 0 #00f2ea;
+  }
+  
+  .quiz-page-logo {
+    font-size: 6em !important;
+  }
+  
+  .quiz-question-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-tiktok-icon {
+    font-size: 4em;
+    text-shadow: 5px 5px 0 #FE2C55, -5px -5px 0 #00f2ea;
+  }
+  
+  .quiz-page-logo {
+    font-size: 5em !important;
+  }
+  
+  .quiz-question-card {
+    padding: 30px 20px;
+  }
+
+  .question-text {
+    font-size: 18px;
+  }
+
+  .quiz-answer {
+    padding: 15px 18px;
+    font-size: 15px;
+  }
+
+  .congrats-title {
+    font-size: 32px;
+  }
+
+  .prize-amount {
+    font-size: 36px;
+  }
+
+  .congrats-btn {
+    padding: 16px 40px;
+    font-size: 16px;
+  }
+}
+
+/* ==================================
+   Página de Obrigado - TikTok Style
+   ================================== */
+
+#thank-you-screen {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de fundo sutil */
+#thank-you-screen::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(254, 44, 85, 0.15) 0%, transparent 70%);
+  animation: rotateBackground 20s linear infinite;
+}
+
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.thank-you-container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo do TikTok */
+.thank-you-logo {
+  margin: 0 auto 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: logoAppear 0.8s ease;
+}
+
+.thank-you-logo .quiz-tiktok-icon {
+  font-size: 8em;
+  text-shadow: 8px 8px 0 #FE2C55, -8px -8px 0 #00f2ea;
+}
+
+@keyframes logoAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  70% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Título "Obrigado" */
+.thank-you-title {
+  font-size: 48px;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 15px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -1px;
+  animation: titleBounce 0.6s ease 0.2s backwards;
+}
+
+@keyframes titleBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.thank-you-subtitle {
+  font-size: 18px;
+  color: #d1d5db;
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.6;
+  animation: fadeIn 0.6s ease 0.4s backwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.thank-you-message {
+  font-size: 16px;
+  color: #9ca3af;
+  margin-bottom: 30px;
+  animation: fadeIn 0.6s ease 0.5s backwards;
+}
+
+/* Valor do prêmio */
+.thank-you-prize {
+  background: linear-gradient(135deg, #FE2C55 0%, #FF6B9D 100%);
+  padding: 20px 25px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 40px rgba(254, 44, 85, 0.3);
+  animation: prizeSlideIn 0.6s ease 0.6s backwards;
+}
+
+@keyframes prizeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.thank-you-prize-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.thank-you-prize-amount {
+  font-size: 46px;
+  color: #fff;
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -2px;
+  margin-bottom: 8px;
+}
+
+.thank-you-prize-description {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
+/* Botão com efeito de pulso */
+.thank-you-btn {
+  background: linear-gradient(135deg, #FE2C55 0%, #FF6B9D 100%);
+  color: white;
+  border: none;
+  padding: 20px 60px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 8px 24px rgba(254, 44, 85, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: btnAppear 0.6s ease 0.8s backwards;
+}
+
+@keyframes btnAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Efeito de pulso contínuo */
+.thank-you-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+.thank-you-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(254, 44, 85, 0.5);
+}
+
+.thank-you-btn:active {
+  transform: translateY(-2px);
+}
+
+/* Texto do botão */
+.thank-you-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .quiz-tiktok-icon {
+    font-size: 5em;
+    text-shadow: 6px 6px 0 #FE2C55, -6px -6px 0 #00f2ea;
+  }
+  
+  .thank-you-logo .quiz-tiktok-icon {
+    font-size: 6em;
+    text-shadow: 6px 6px 0 #FE2C55, -6px -6px 0 #00f2ea;
+  }
+  
+  .thank-you-logo {
+    margin-bottom: 15px;
+  }
+  
+  .thank-you-title {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+  
+  .thank-you-subtitle {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .thank-you-message {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .thank-you-prize {
+    padding: 18px 20px;
+    margin-bottom: 25px;
+  }
+  
+  .thank-you-prize-amount {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-tiktok-icon {
+    font-size: 4em;
+    text-shadow: 5px 5px 0 #FE2C55, -5px -5px 0 #00f2ea;
+  }
+  
+  #thank-you-screen {
+    padding: 15px;
+  }
+  
+  .thank-you-logo {
+    margin-bottom: 10px;
+  }
+  
+  .thank-you-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .thank-you-subtitle {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .thank-you-message {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+
+  .thank-you-prize {
+    padding: 16px 18px;
+    margin-bottom: 20px;
+  }
+  
+  .thank-you-prize-amount {
+    font-size: 32px;
+  }
+  
+  .thank-you-prize-label {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .thank-you-prize-description {
+    font-size: 13px;
+  }
+
+  .thank-you-btn {
+    padding: 16px 40px;
+    font-size: 15px;
+  }
+
+  .thank-you-logo .quiz-tiktok-icon {
+    font-size: 5em;
+    text-shadow: 5px 5px 0 #FE2C55, -5px -5px 0 #00f2ea;
+  }
+}

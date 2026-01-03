@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="no-referrer">
+    <title>Obrigado - TikTok</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+<body>
+    <main id="screens">
+      <section id="thank-you-screen" class="screen is-active">
+        <div class="thank-you-container">
+          <div class="thank-you-logo">
+            <i class="fab fa-tiktok quiz-tiktok-icon"></i>
+          </div>
+
+          <h1 class="thank-you-title">Obrigado!</h1>
+          <p class="thank-you-subtitle">Você completou todas as etapas com sucesso</p>
+          
+          <div style="margin: 15px 0;">
+            <svg width="150" height="150" viewBox="0 0 200 200" fill="none" style="margin: 0 auto; display: block;">
+              <circle cx="100" cy="100" r="90" fill="#FE2C55" opacity="0.1"/>
+              <circle cx="100" cy="100" r="70" fill="#FE2C55" opacity="0.2"/>
+              <circle cx="100" cy="100" r="50" fill="#FE2C55"/>
+              <path d="M75 100L90 115L125 80" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="60" cy="60" r="15" fill="#FE2C55" opacity="0.3">
+                <animate attributeName="r" values="15;20;15" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="140" cy="60" r="12" fill="#FF6B9D" opacity="0.3">
+                <animate attributeName="r" values="12;17;12" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="140" cy="140" r="10" fill="#FE2C55" opacity="0.3">
+                <animate attributeName="r" values="10;15;10" dur="3s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+          </div>
+          
+          <p class="thank-you-message">Agora você está pronto para resgatar seu prêmio</p>
+
+          <div class="thank-you-prize">
+            <div class="thank-you-prize-label">Seu Prêmio</div>
+            <div class="thank-you-prize-amount">R$ 2.834,72</div>
+            <div class="thank-you-prize-description">Disponível para saque via PIX</div>
+          </div>
+
+          <button class="thank-you-btn" onclick="window.location.href='resgate.html'">
+            <span>Pegar Prêmio Agora</span>
+          </button>
+        </div>
+      </section>
+    </main>
+</body>
+</html>
